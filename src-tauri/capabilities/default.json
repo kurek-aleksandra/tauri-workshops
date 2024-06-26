@@ -2,7 +2,9 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
   "description": "Capability for the main window",
-  "windows": ["main"],
+  "windows": [
+    "main"
+  ],
   "permissions": [
     "path:default",
     "event:default",
@@ -17,6 +19,7 @@
     "dialog:allow-ask",
     "os:allow-platform",
     "os:allow-locale",
-    "os:default"
+    "os:default",
+    "notification:default"
   ]
 }

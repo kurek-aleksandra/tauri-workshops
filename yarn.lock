@@ -517,6 +517,13 @@
   dependencies:
     "@tauri-apps/api" "2.0.0-beta.13"
 
+"@tauri-apps/plugin-notification@^2.0.0-beta.5":
+  version "2.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@tauri-apps/plugin-notification/-/plugin-notification-2.0.0-beta.5.tgz#79bc72055dd65b89ac46c59c6eaa3ed3eda28d7c"
+  integrity sha512-5zYK2aT1ZvR+LnuwsnTvg28iEhI7FiZSPvBqQ8y6fj28T4oIHVox19Pk4YRyTyfyJN1nZclXxVAqWLSXLI9SKQ==
+  dependencies:
+    "@tauri-apps/api" "2.0.0-beta.13"
+
 "@tauri-apps/plugin-os@^2.0.0-beta.5":
   version "2.0.0-beta.5"
   resolved "https://registry.yarnpkg.com/@tauri-apps/plugin-os/-/plugin-os-2.0.0-beta.5.tgz#7b3b066796e37f073925afb6cb0ddb9cdab0f7d9"

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/core";
 import { ask } from "@tauri-apps/plugin-dialog";
+import { isPermissionGranted, sendNotification, requestPermission } from "@tauri-apps/plugin-notification";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,36 @@ function App() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     setGreetMsg(await invoke("greet", { name }));
   }
+
+  useEffect(()=>{
+    async function checkNotificationPermission() {
+    const hasPermission = await isPermissionGranted();
+
+    if (!hasPermission) {
+      const permission = await requestPermission();
+
+      if (permission === "granted") {
+        console.log("Permission granted");
+        sendNotification({
+          title: "Hello from Rust!",
+          body: "This is a notification from JavaScript and Rust",
+        });
+      } else {
+        console.log("Permission denied");
+      }
+    } else {
+      console.log("Already has permission");
+      console.log("sendNotification ");
+      sendNotification({
+        title: "Hello from Rust!",
+        body: "This is a notification from JavaScript and Rust",
+      });
+    }
+  }
+
+    checkNotificationPermission();
+
+  }, []);
 
   useEffect(() => {
     const tryAsk = async () => {
